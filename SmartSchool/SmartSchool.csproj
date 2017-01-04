@@ -1,0 +1,437 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{99B46945-DC8F-4F6E-86F8-D30121694E13}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SmartSchool</RootNamespace>
+    <AssemblyName>SmartSchool</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>E:\5th Semester\ISD\Software\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>SmartSchool</ProductName>
+    <PublisherName>Murtaza Fakhruddin</PublisherName>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>10</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>65810D8EABA9D7E7362F0329EF154EEB62040A48</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>SmartSchool_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icons\eductaion-hat-school-icon--4 - Copy.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataSets\SMSUsers.cs">
+      <DependentUpon>SMSUsers.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB.cs" />
+    <Compile Include="Reports\FeeRemainingReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FeeRemainingReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardViews\frmAdminDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardViews\frmAdminDashboard.Designer.cs">
+      <DependentUpon>frmAdminDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceDasboardViews\frmChart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FinanceDasboardViews\frmChart.Designer.cs">
+      <DependentUpon>frmChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminDashboardViews\frmDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardViews\frmDepartment.Designer.cs">
+      <DependentUpon>frmDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminDashboardViews\frmDepartmentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardViews\frmDepartmentView.Designer.cs">
+      <DependentUpon>frmDepartmentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceDasboardViews\frmFeeReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FinanceDasboardViews\frmFeeReport.Designer.cs">
+      <DependentUpon>frmFeeReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceDasboardViews\frmFees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FinanceDasboardViews\frmFees.Designer.cs">
+      <DependentUpon>frmFees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceDasboardViews\frmFinanceDashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FinanceDasboardViews\frmFinanceDashBoard.Designer.cs">
+      <DependentUpon>frmFinanceDashBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminDashboardViews\frmNewAddmission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardViews\frmNewAddmission.Designer.cs">
+      <DependentUpon>frmNewAddmission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminDashboardViews\frmNewUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardViews\frmNewUser.Designer.cs">
+      <DependentUpon>frmNewUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SalaryReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SalaryReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FinanceDasboardViews\frmSalary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FinanceDasboardViews\frmSalary.Designer.cs">
+      <DependentUpon>frmSalary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceDasboardViews\frmSalaryReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FinanceDasboardViews\frmSalaryReport.Designer.cs">
+      <DependentUpon>frmSalaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceDasboardViews\frmSalaryView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FinanceDasboardViews\frmSalaryView.Designer.cs">
+      <DependentUpon>frmSalaryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminDashboardViews\frmSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardViews\frmSchedule.Designer.cs">
+      <DependentUpon>frmSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViews\frmAllSalaryReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViews\frmAllSalaryReport.Designer.cs">
+      <DependentUpon>frmAllSalaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViews\frmScheduleReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViews\frmScheduleReport.Designer.cs">
+      <DependentUpon>frmScheduleReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminDashboardViews\frmShowUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardViews\frmShowUsers.Designer.cs">
+      <DependentUpon>frmShowUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminDashboardViews\frmStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardViews\frmStaff.Designer.cs">
+      <DependentUpon>frmStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminDashboardViews\frmStaffView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardViews\frmStaffView.Designer.cs">
+      <DependentUpon>frmStaffView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminDashboardViews\frmStudentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardViews\frmStudentView.Designer.cs">
+      <DependentUpon>frmStudentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminDashboardViews\frmSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardViews\frmSubject.Designer.cs">
+      <DependentUpon>frmSubject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminDashboardViews\frmSubjectView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardViews\frmSubjectView.Designer.cs">
+      <DependentUpon>frmSubjectView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceDasboardViews\frmViewFees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FinanceDasboardViews\frmViewFees.Designer.cs">
+      <DependentUpon>frmViewFees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportViews\frmFeeRemainingReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViews\frmFeeRemainingReport.Designer.cs">
+      <DependentUpon>frmFeeRemainingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ScheduleReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ScheduleReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSets\SMSDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SMSDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\SMSUsers.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SMSUsers.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Reports\FeeRemainingReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>FeeRemainingReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboardViews\frmAdminDashboard.resx">
+      <DependentUpon>frmAdminDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinanceDasboardViews\frmChart.resx">
+      <DependentUpon>frmChart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboardViews\frmDepartment.resx">
+      <DependentUpon>frmDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboardViews\frmDepartmentView.resx">
+      <DependentUpon>frmDepartmentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinanceDasboardViews\frmFeeReport.resx">
+      <DependentUpon>frmFeeReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinanceDasboardViews\frmFees.resx">
+      <DependentUpon>frmFees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinanceDasboardViews\frmFinanceDashBoard.resx">
+      <DependentUpon>frmFinanceDashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboardViews\frmNewAddmission.resx">
+      <DependentUpon>frmNewAddmission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboardViews\frmNewUser.resx">
+      <DependentUpon>frmNewUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SalaryReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SalaryReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinanceDasboardViews\frmSalary.resx">
+      <DependentUpon>frmSalary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinanceDasboardViews\frmSalaryReport.resx">
+      <DependentUpon>frmSalaryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinanceDasboardViews\frmSalaryView.resx">
+      <DependentUpon>frmSalaryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboardViews\frmSchedule.resx">
+      <DependentUpon>frmSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViews\frmAllSalaryReport.resx">
+      <DependentUpon>frmAllSalaryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViews\frmScheduleReport.resx">
+      <DependentUpon>frmScheduleReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboardViews\frmShowUsers.resx">
+      <DependentUpon>frmShowUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboardViews\frmStaff.resx">
+      <DependentUpon>frmStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboardViews\frmStaffView.resx">
+      <DependentUpon>frmStaffView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboardViews\frmStudentView.resx">
+      <DependentUpon>frmStudentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboardViews\frmSubject.resx">
+      <DependentUpon>frmSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboardViews\frmSubjectView.resx">
+      <DependentUpon>frmSubjectView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinanceDasboardViews\frmViewFees.resx">
+      <DependentUpon>frmViewFees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ReportViews\frmFeeRemainingReport.resx">
+      <DependentUpon>frmFeeRemainingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ScheduleReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ScheduleReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="SmartSchool_TemporaryKey.pfx" />
+    <None Include="DataSets\SMSDataSet.xsc">
+      <DependentUpon>SMSDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\SMSDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SMSDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSets\SMSDataSet.xss">
+      <DependentUpon>SMSDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\SMSUsers.xsc">
+      <DependentUpon>SMSUsers.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\SMSUsers.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SMSUsers.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSets\SMSUsers.xss">
+      <DependentUpon>SMSUsers.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icons\eductaion-hat-school-icon--4 - Copy.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
