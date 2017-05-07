@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,7 +45,7 @@ namespace SmartSchool
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@firstname", txtfirstname.Text);
                 cmd.Parameters.AddWithValue("@lastname", txtlastname.Text);
-                cmd.Parameters.AddWithValue("@gender", txtgender.Text);
+                cmd.Parameters.AddWithValue("@gender", cbGender.Text);
                 cmd.Parameters.AddWithValue("@dob", dtdob.Value);
                 cmd.Parameters.AddWithValue("@placeofbirth", txtplace.Text);
                 cmd.Parameters.AddWithValue("@mothertongue", txttounge.Text);
@@ -56,6 +57,7 @@ namespace SmartSchool
                 cmd.Parameters.AddWithValue("@bform", decimal.Parse(txtbform.Text));
                 cmd.Parameters.AddWithValue("@class", int.Parse(txtclass.Text));
                 cmd.Parameters.AddWithValue("@section", txtsection.Text);
+                cmd.Parameters.AddWithValue("@picture", fSavePhoto(pictureBox2));
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("New Admission Successful!");
                 Clear();
@@ -75,7 +77,7 @@ namespace SmartSchool
             StudentID();
             txtfirstname.Text = null;
             txtlastname.Text = null;
-            txtgender.Text = null;
+            cbGender.ResetText();
             txtplace.Text = null;
             dtdob.ResetText();
             dtjoining.ResetText();
@@ -87,11 +89,34 @@ namespace SmartSchool
             txtbform.Text = null;
             txtclass.Text = null;
             txtsection.Text = null;
+            pictureBox2.Image = null;
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
             Clear();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog oOpenFileDialogstd = new OpenFileDialog();
+            oOpenFileDialogstd.Title = "Select Student Photo";
+            oOpenFileDialogstd.Filter = "Image File (*.png;*.jpg;*.bmp;*.gif)|*.png;*.jpg;*.bmp;*.gif";
+
+            if (oOpenFileDialogstd.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox2.Image = new Bitmap(oOpenFileDialogstd.FileName);
+            }
+        }
+
+        public static byte[] fSavePhoto(PictureBox pb)
+        {
+
+            MemoryStream ms = new MemoryStream();
+            pb.Image.Save(ms, pb.Image.RawFormat);
+
+            return ms.GetBuffer();
+        
+    }
     }
 }

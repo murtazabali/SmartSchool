@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -101,7 +102,7 @@ namespace SmartSchool
                 cmd.Parameters.AddWithValue("@staffid", int.Parse(tbStaffId.Text));
                 cmd.Parameters.AddWithValue("@firstname", tbFirstname.Text);
                 cmd.Parameters.AddWithValue("@lastname", tbLastname.Text);
-                cmd.Parameters.AddWithValue("@gender", tbGender.Text);
+                cmd.Parameters.AddWithValue("@gender", cbGenderStaff.Text);
                 cmd.Parameters.AddWithValue("@dob", dtStaffDob.Value);
                 cmd.Parameters.AddWithValue("@placeofbirth", tbPlaceOfBirth.Text);
                 cmd.Parameters.AddWithValue("@mothertongue", tbMotherTongue.Text);
@@ -114,6 +115,7 @@ namespace SmartSchool
                 cmd.Parameters.AddWithValue("@previousexp", tbPreviousExp.Text);
                 cmd.Parameters.AddWithValue("@designation", cbDesignation.SelectedValue.ToString());
                 cmd.Parameters.AddWithValue("@desgid", desgid());
+                cmd.Parameters.AddWithValue("@picture", fSavePhoto(pictureBox2));
                 if (cbDesignation.SelectedValue.ToString() == "Faculty")
                 {
                     cmd.Parameters.AddWithValue("@subjectname", cbSubject.SelectedValue.ToString());
@@ -141,7 +143,7 @@ namespace SmartSchool
             tbStaffId.Text = null;
             tbFirstname.Text = null;
             tbLastname.Text = null;
-            tbGender.Text = null;
+            cbGenderStaff.ResetText();
             dtStaffDob.Text = null;
             tbMotherTongue.Text = null;
             tbNationality.Text = null;
@@ -157,6 +159,7 @@ namespace SmartSchool
             cbSubject.Hide();
             lblSubject.Hide();
             StaffID();
+            pictureBox2.Image = null;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -181,6 +184,29 @@ namespace SmartSchool
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            OpenFileDialog oOpenFileDialogstd = new OpenFileDialog();
+            oOpenFileDialogstd.Title = "Select Student Photo";
+            oOpenFileDialogstd.Filter = "Image File (*.png;*.jpg;*.bmp;*.gif)|*.png;*.jpg;*.bmp;*.gif";
+
+            if (oOpenFileDialogstd.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox2.Image = new Bitmap(oOpenFileDialogstd.FileName);
+            }
+        }
+
+        public static byte[] fSavePhoto(PictureBox pb)
+        {
+
+            MemoryStream ms = new MemoryStream();
+            pb.Image.Save(ms, pb.Image.RawFormat);
+
+            return ms.GetBuffer();
+
         }
     }
 }

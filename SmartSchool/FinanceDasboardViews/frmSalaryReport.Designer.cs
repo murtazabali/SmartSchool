@@ -31,6 +31,7 @@ namespace SmartSchool
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSalaryReport));
             this.comboBonus = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -44,25 +45,28 @@ namespace SmartSchool
             this.salaryTableAdapter = new SmartSchool.DataSets.SMSDataSetTableAdapters.salaryTableAdapter();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.btnReport = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.salaryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sMSDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvStaffInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvsalReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBonus
             // 
             this.comboBonus.FormattingEnabled = true;
-            this.comboBonus.Location = new System.Drawing.Point(699, 80);
+            this.comboBonus.Location = new System.Drawing.Point(850, 513);
             this.comboBonus.Name = "comboBonus";
-            this.comboBonus.Size = new System.Drawing.Size(121, 21);
+            this.comboBonus.Size = new System.Drawing.Size(193, 21);
             this.comboBonus.TabIndex = 17;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(462, 80);
+            this.button3.Location = new System.Drawing.Point(850, 484);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(231, 23);
+            this.button3.Size = new System.Drawing.Size(193, 23);
             this.button3.TabIndex = 16;
             this.button3.Text = "Generate Report By Bonus";
             this.button3.UseVisualStyleBackColor = true;
@@ -70,9 +74,9 @@ namespace SmartSchool
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(462, 24);
+            this.button2.Location = new System.Drawing.Point(850, 372);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(231, 23);
+            this.button2.Size = new System.Drawing.Size(193, 23);
             this.button2.TabIndex = 15;
             this.button2.Text = "Generate Report For Specific Staff ID";
             this.button2.UseVisualStyleBackColor = true;
@@ -80,9 +84,9 @@ namespace SmartSchool
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(462, 53);
+            this.button1.Location = new System.Drawing.Point(850, 429);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(231, 23);
+            this.button1.Size = new System.Drawing.Size(193, 23);
             this.button1.TabIndex = 14;
             this.button1.Text = "Generate Report By Month";
             this.button1.UseVisualStyleBackColor = true;
@@ -91,9 +95,9 @@ namespace SmartSchool
             // comboMonth
             // 
             this.comboMonth.FormattingEnabled = true;
-            this.comboMonth.Location = new System.Drawing.Point(699, 53);
+            this.comboMonth.Location = new System.Drawing.Point(850, 458);
             this.comboMonth.Name = "comboMonth";
-            this.comboMonth.Size = new System.Drawing.Size(121, 21);
+            this.comboMonth.Size = new System.Drawing.Size(193, 21);
             this.comboMonth.TabIndex = 13;
             // 
             // comboID
@@ -102,9 +106,9 @@ namespace SmartSchool
             this.comboID.DataSource = this.salaryBindingSource;
             this.comboID.DisplayMember = "salid";
             this.comboID.FormattingEnabled = true;
-            this.comboID.Location = new System.Drawing.Point(699, 23);
+            this.comboID.Location = new System.Drawing.Point(850, 402);
             this.comboID.Name = "comboID";
-            this.comboID.Size = new System.Drawing.Size(121, 21);
+            this.comboID.Size = new System.Drawing.Size(193, 21);
             this.comboID.TabIndex = 12;
             this.comboID.ValueMember = "salid";
             // 
@@ -121,17 +125,17 @@ namespace SmartSchool
             // gvStaffInfo
             // 
             this.gvStaffInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvStaffInfo.Location = new System.Drawing.Point(33, 292);
+            this.gvStaffInfo.Location = new System.Drawing.Point(257, 383);
             this.gvStaffInfo.Name = "gvStaffInfo";
-            this.gvStaffInfo.Size = new System.Drawing.Size(747, 150);
+            this.gvStaffInfo.Size = new System.Drawing.Size(587, 150);
             this.gvStaffInfo.TabIndex = 19;
             // 
             // gvsalReport
             // 
             this.gvsalReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvsalReport.Location = new System.Drawing.Point(33, 127);
+            this.gvsalReport.Location = new System.Drawing.Point(257, 190);
             this.gvsalReport.Name = "gvsalReport";
-            this.gvsalReport.Size = new System.Drawing.Size(884, 134);
+            this.gvsalReport.Size = new System.Drawing.Size(786, 162);
             this.gvsalReport.TabIndex = 18;
             // 
             // salaryTableAdapter
@@ -141,7 +145,7 @@ namespace SmartSchool
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(71, 269);
+            this.checkBox1.Location = new System.Drawing.Point(257, 360);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(87, 17);
             this.checkBox1.TabIndex = 20;
@@ -151,7 +155,7 @@ namespace SmartSchool
             // 
             // btnReport
             // 
-            this.btnReport.Location = new System.Drawing.Point(797, 267);
+            this.btnReport.Location = new System.Drawing.Point(923, 161);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(120, 23);
             this.btnReport.TabIndex = 21;
@@ -159,11 +163,32 @@ namespace SmartSchool
             this.btnReport.UseVisualStyleBackColor = true;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(331, 98);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(208, 31);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Salary Reports";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(257, 65);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 110);
+            this.pictureBox1.TabIndex = 23;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmSalaryReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1239, 637);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnReport);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.gvStaffInfo);
@@ -184,6 +209,7 @@ namespace SmartSchool
             ((System.ComponentModel.ISupportInitialize)(this.sMSDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvStaffInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvsalReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,5 +230,7 @@ namespace SmartSchool
         private DataSets.SMSDataSetTableAdapters.salaryTableAdapter salaryTableAdapter;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button btnReport;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

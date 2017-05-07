@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,14 +42,14 @@ namespace SmartSchool
         {
             SqlConnection conn = new SqlConnection(DB.GetInstance().connStr);
             conn.Open();
-            String query = "Select * from student";
+            String query = "Select stdid, [firstname],[lastname],[gender],[dob] ,[placeofbirth] ,[mothertongue],[nationality]  ,[contact],[address],[dateofjoining],[lastschoolattend],[bform] ,[class]  ,[section] from student";
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
             gvstudent.DataSource = dt;
             conn.Close();
-        }   
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -72,7 +73,7 @@ namespace SmartSchool
 
                 }
 
-                
+
 
 
             }
@@ -103,7 +104,7 @@ namespace SmartSchool
                 }
 
             }
-            }
+        }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -111,23 +112,25 @@ namespace SmartSchool
             conn.Open();
             if (tbSearchStudentFname.Text != "")
             {
-                String query = String.Format("select * from student where firstname like '%{0}%' and lastname like '%{1}%'", tbSearchStudentFname.Text, tbSearchStudentLName.Text);
+                String query = String.Format("select stdid,[firstname],[lastname],[gender],[dob] ,[placeofbirth] ,[mothertongue],[nationality]  ,[contact],[address],[dateofjoining],[lastschoolattend],[bform] ,[class]  ,[section] from student where firstname like '%{0}%' and lastname like '%{1}%'", tbSearchStudentFname.Text, tbSearchStudentLName.Text);
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 gvstudent.DataSource = dt;
+                get_image3();
                 conn.Close();
                 cbSearchStudent.ResetText();
             }
             else
             {
-                String query = String.Format("Select * from student where stdid = {0}", cbSearchStudent.SelectedValue);
+                String query = String.Format("Select stdid, [firstname],[lastname],[gender],[dob] ,[placeofbirth] ,[mothertongue],[nationality]  ,[contact],[address],[dateofjoining],[lastschoolattend],[bform] ,[class]  ,[section] from student where stdid = {0}", cbSearchStudent.SelectedValue);
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 gvstudent.DataSource = dt;
+                get_image2();
                 conn.Close();
             }
         }
@@ -149,6 +152,108 @@ namespace SmartSchool
             tbSearchStudentFname.Clear();
             tbSearchStudentLName.Clear();
             cbSearchStudent.ResetText();
+            pictureBox2.Image = null;
+            
+        }
+
+        public Image get_image()
+        {
+            try
+            {
+                string id = gvstudent.SelectedRows[0].Cells[0].Value.ToString();
+                SqlConnection conn = new SqlConnection(DB.GetInstance().connStr);
+                conn.Open();
+                String query = "Select picture from student where stdid = " + id + " ";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                if (cmd.ExecuteScalar().ToString() != "")
+                {
+                    byte[] s = (byte[])cmd.ExecuteScalar();
+                    MemoryStream ms = new MemoryStream(s);
+                    conn.Close();
+                    return pictureBox2.Image = Image.FromStream(ms);
+                }
+                else
+                {
+                    conn.Close();
+                    MessageBox.Show("Image Not Found!");
+                    return pictureBox2.Image = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please select full row!");
+                return pictureBox2.Image = null;
+            }
+
+        }
+
+        public Image get_image3()
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(DB.GetInstance().connStr);
+                conn.Open();
+                String query = String.Format("Select picture from student where firstname like '%{0}%' and lastname like '%{1}%'", tbSearchStudentFname.Text, tbSearchStudentLName.Text);
+                SqlCommand cmd = new SqlCommand(query, conn);
+                if (cmd.ExecuteScalar().ToString() != "")
+                {
+                    byte[] s = (byte[])cmd.ExecuteScalar();
+                    MemoryStream ms = new MemoryStream(s);
+                    conn.Close();
+                    return pictureBox2.Image = Image.FromStream(ms);
+                }
+                else
+                {
+                    conn.Close();
+                    return pictureBox2.Image = null;
+                }
+            }
+            catch(Exception ex)
+            {
+                return pictureBox2.Image = null;
+            }
+            
+        }
+        public Image get_image2()
+        {
+
+            string id = cbSearchStudent.SelectedValue.ToString();
+            SqlConnection conn = new SqlConnection(DB.GetInstance().connStr);
+            conn.Open();
+            String query = "Select picture from student where stdid = " + id + " ";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            if (cmd.ExecuteScalar().ToString() != "")
+            {
+                byte[] s = (byte[])cmd.ExecuteScalar();
+                MemoryStream ms = new MemoryStream(s);
+                conn.Close();
+                return pictureBox2.Image = Image.FromStream(ms);
+            }
+            else
+            {
+                conn.Close();
+                return pictureBox2.Image = null;
+            }
+        }
+
+        private void btnShowImage_Click(object sender, EventArgs e)
+        {
+            if (cbSearchStudent.Text != ""&& cbSearchStudent.Text != "(ID)")
+            {
+                if (get_image2() != null)
+                {
+                    get_image2();
+                }
+                else
+                {
+                    MessageBox.Show("Image Not Found!");
+                }
+            }
+            else
+            {
+                get_image();
+            }
+           
         }
     }
 }

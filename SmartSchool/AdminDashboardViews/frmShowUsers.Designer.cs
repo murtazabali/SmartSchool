@@ -31,6 +31,7 @@ namespace SmartSchool
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmShowUsers));
             this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.useridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,9 +49,11 @@ namespace SmartSchool
             this.tbSearchUsers = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnLoadAll = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sMSUsers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvUsers
@@ -63,9 +66,9 @@ namespace SmartSchool
             this.passwordDataGridViewTextBoxColumn,
             this.deptidDataGridViewTextBoxColumn});
             this.dgvUsers.DataSource = this.usersBindingSource;
-            this.dgvUsers.Location = new System.Drawing.Point(24, 109);
+            this.dgvUsers.Location = new System.Drawing.Point(408, 207);
             this.dgvUsers.Name = "dgvUsers";
-            this.dgvUsers.Size = new System.Drawing.Size(626, 323);
+            this.dgvUsers.Size = new System.Drawing.Size(444, 323);
             this.dgvUsers.TabIndex = 0;
             // 
             // useridDataGridViewTextBoxColumn
@@ -109,7 +112,7 @@ namespace SmartSchool
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(575, 447);
+            this.btnUpdate.Location = new System.Drawing.Point(781, 536);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 1;
@@ -119,7 +122,7 @@ namespace SmartSchool
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(472, 447);
+            this.btnDelete.Location = new System.Drawing.Point(678, 536);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 2;
@@ -130,7 +133,7 @@ namespace SmartSchool
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(171, 64);
+            this.label3.Location = new System.Drawing.Point(555, 162);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 22;
@@ -139,7 +142,7 @@ namespace SmartSchool
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 64);
+            this.label2.Location = new System.Drawing.Point(405, 162);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 23;
@@ -148,7 +151,7 @@ namespace SmartSchool
             // cbSearchUsers
             // 
             this.cbSearchUsers.FormattingEnabled = true;
-            this.cbSearchUsers.Location = new System.Drawing.Point(174, 80);
+            this.cbSearchUsers.Location = new System.Drawing.Point(558, 178);
             this.cbSearchUsers.Name = "cbSearchUsers";
             this.cbSearchUsers.Size = new System.Drawing.Size(54, 21);
             this.cbSearchUsers.TabIndex = 21;
@@ -156,7 +159,7 @@ namespace SmartSchool
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(234, 80);
+            this.btnSearch.Location = new System.Drawing.Point(618, 178);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(107, 23);
             this.btnSearch.TabIndex = 20;
@@ -166,7 +169,7 @@ namespace SmartSchool
             // 
             // tbSearchUsers
             // 
-            this.tbSearchUsers.Location = new System.Drawing.Point(24, 80);
+            this.tbSearchUsers.Location = new System.Drawing.Point(408, 178);
             this.tbSearchUsers.Name = "tbSearchUsers";
             this.tbSearchUsers.Size = new System.Drawing.Size(144, 20);
             this.tbSearchUsers.TabIndex = 19;
@@ -176,7 +179,7 @@ namespace SmartSchool
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(18, 19);
+            this.label1.Location = new System.Drawing.Point(583, 63);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 33);
             this.label1.TabIndex = 23;
@@ -184,13 +187,22 @@ namespace SmartSchool
             // 
             // btnLoadAll
             // 
-            this.btnLoadAll.Location = new System.Drawing.Point(347, 80);
+            this.btnLoadAll.Location = new System.Drawing.Point(731, 178);
             this.btnLoadAll.Name = "btnLoadAll";
             this.btnLoadAll.Size = new System.Drawing.Size(121, 23);
             this.btnLoadAll.TabIndex = 24;
             this.btnLoadAll.Text = "Load All Record";
             this.btnLoadAll.UseVisualStyleBackColor = true;
             this.btnLoadAll.Click += new System.EventHandler(this.btnLoadAll_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(512, 38);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 75);
+            this.pictureBox1.TabIndex = 49;
+            this.pictureBox1.TabStop = false;
             // 
             // frmShowUsers
             // 
@@ -207,6 +219,7 @@ namespace SmartSchool
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dgvUsers);
+            this.Controls.Add(this.pictureBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmShowUsers";
@@ -216,6 +229,7 @@ namespace SmartSchool
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sMSUsers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,5 +254,6 @@ namespace SmartSchool
         private System.Windows.Forms.TextBox tbSearchUsers;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnLoadAll;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

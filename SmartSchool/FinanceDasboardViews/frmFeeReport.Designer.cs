@@ -31,6 +31,7 @@ namespace SmartSchool
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFeeReport));
             this.gvFeeReport = new System.Windows.Forms.DataGridView();
             this.cbBalanceFees = new System.Windows.Forms.CheckBox();
             this.gvStudentInfo = new System.Windows.Forms.DataGridView();
@@ -47,17 +48,20 @@ namespace SmartSchool
             this.comboScholarShip = new System.Windows.Forms.ComboBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.btnReport = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.gvFeeReport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvStudentInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sMSDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sMSDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // gvFeeReport
             // 
             this.gvFeeReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvFeeReport.Location = new System.Drawing.Point(34, 102);
+            this.gvFeeReport.Location = new System.Drawing.Point(140, 228);
             this.gvFeeReport.Name = "gvFeeReport";
             this.gvFeeReport.Size = new System.Drawing.Size(884, 134);
             this.gvFeeReport.TabIndex = 0;
@@ -65,7 +69,7 @@ namespace SmartSchool
             // cbBalanceFees
             // 
             this.cbBalanceFees.AutoSize = true;
-            this.cbBalanceFees.Location = new System.Drawing.Point(34, 31);
+            this.cbBalanceFees.Location = new System.Drawing.Point(140, 157);
             this.cbBalanceFees.Name = "cbBalanceFees";
             this.cbBalanceFees.Size = new System.Drawing.Size(191, 17);
             this.cbBalanceFees.TabIndex = 1;
@@ -76,7 +80,7 @@ namespace SmartSchool
             // gvStudentInfo
             // 
             this.gvStudentInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvStudentInfo.Location = new System.Drawing.Point(34, 275);
+            this.gvStudentInfo.Location = new System.Drawing.Point(140, 401);
             this.gvStudentInfo.Name = "gvStudentInfo";
             this.gvStudentInfo.Size = new System.Drawing.Size(747, 150);
             this.gvStudentInfo.TabIndex = 2;
@@ -84,7 +88,7 @@ namespace SmartSchool
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(34, 252);
+            this.checkBox1.Location = new System.Drawing.Point(140, 378);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(447, 17);
             this.checkBox1.TabIndex = 3;
@@ -99,7 +103,7 @@ namespace SmartSchool
             this.comboID.DataSource = this.studentBindingSource;
             this.comboID.DisplayMember = "stdid";
             this.comboID.FormattingEnabled = true;
-            this.comboID.Location = new System.Drawing.Point(797, 16);
+            this.comboID.Location = new System.Drawing.Point(903, 142);
             this.comboID.Name = "comboID";
             this.comboID.Size = new System.Drawing.Size(121, 21);
             this.comboID.TabIndex = 4;
@@ -127,14 +131,14 @@ namespace SmartSchool
             // comboMonth
             // 
             this.comboMonth.FormattingEnabled = true;
-            this.comboMonth.Location = new System.Drawing.Point(797, 46);
+            this.comboMonth.Location = new System.Drawing.Point(903, 172);
             this.comboMonth.Name = "comboMonth";
             this.comboMonth.Size = new System.Drawing.Size(121, 21);
             this.comboMonth.TabIndex = 7;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(560, 46);
+            this.button1.Location = new System.Drawing.Point(666, 172);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(231, 23);
             this.button1.TabIndex = 8;
@@ -144,7 +148,7 @@ namespace SmartSchool
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(560, 17);
+            this.button2.Location = new System.Drawing.Point(666, 143);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(231, 23);
             this.button2.TabIndex = 9;
@@ -154,7 +158,7 @@ namespace SmartSchool
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(560, 73);
+            this.button3.Location = new System.Drawing.Point(666, 199);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(231, 23);
             this.button3.TabIndex = 10;
@@ -165,7 +169,7 @@ namespace SmartSchool
             // comboScholarShip
             // 
             this.comboScholarShip.FormattingEnabled = true;
-            this.comboScholarShip.Location = new System.Drawing.Point(797, 73);
+            this.comboScholarShip.Location = new System.Drawing.Point(903, 199);
             this.comboScholarShip.Name = "comboScholarShip";
             this.comboScholarShip.Size = new System.Drawing.Size(121, 21);
             this.comboScholarShip.TabIndex = 11;
@@ -173,7 +177,7 @@ namespace SmartSchool
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(34, 54);
+            this.checkBox2.Location = new System.Drawing.Point(140, 180);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(309, 17);
             this.checkBox2.TabIndex = 12;
@@ -183,7 +187,7 @@ namespace SmartSchool
             // 
             // btnReport
             // 
-            this.btnReport.Location = new System.Drawing.Point(34, 73);
+            this.btnReport.Location = new System.Drawing.Point(140, 199);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(191, 23);
             this.btnReport.TabIndex = 13;
@@ -191,11 +195,31 @@ namespace SmartSchool
             this.btnReport.UseVisualStyleBackColor = true;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(216, 54);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(175, 31);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Fee Reports";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(140, 26);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 110);
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmFeeReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1239, 637);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnReport);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.comboScholarShip);
@@ -208,6 +232,7 @@ namespace SmartSchool
             this.Controls.Add(this.gvStudentInfo);
             this.Controls.Add(this.cbBalanceFees);
             this.Controls.Add(this.gvFeeReport);
+            this.Controls.Add(this.pictureBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmFeeReport";
@@ -219,6 +244,7 @@ namespace SmartSchool
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sMSDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sMSDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,5 +268,7 @@ namespace SmartSchool
         private System.Windows.Forms.ComboBox comboScholarShip;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Button btnReport;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

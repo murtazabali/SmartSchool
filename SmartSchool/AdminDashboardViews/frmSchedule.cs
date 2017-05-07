@@ -18,9 +18,6 @@ namespace SmartSchool
             InitializeComponent();
         }
 
-        
-
-
         void load()
         {
 
@@ -39,13 +36,6 @@ namespace SmartSchool
 
                 }
             }
-        }
-
-        void cb_Day()
-        {
-            string[] day = { "(Select Day)", "Monday", "Tuesday", "Wednesday", "Thrusday", "Friday", "Saturday" };
-            cbDay.DataSource = day;
-            //   cbFindDayWise.DataSource = day;
         }
 
         void cb_Time()
@@ -84,7 +74,7 @@ namespace SmartSchool
         void Cb_teacher()
         {
             SqlConnection conn = new SqlConnection(DB.GetInstance().connStr);
-            String query = "Select * from staffs where designation = 'Faculty'";
+            String query = String.Format("Select * from staffs where designation = 'Faculty' and subjectname like '%{0}%'", cbSubject.SelectedValue.ToString());
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -96,70 +86,57 @@ namespace SmartSchool
 
         void count_room()
         {
-            using (SqlConnection conn = new SqlConnection(DB.GetInstance().connStr))
+            try
             {
-                string sql = string.Format("select count(RoomNo) from Schedule where Day = '" + cbDay.Text + "' and Date = '" + dateTimePicker1.Value + "' and Time = '" + cbTime.Text + "' and  RoomNo = " + cbRoom.Text + "");
-                using (SqlCommand cmd = new SqlCommand(sql, conn))
+
+                using (SqlConnection conn = new SqlConnection(DB.GetInstance().connStr))
                 {
-                    conn.Open();
-                    int count = int.Parse(cmd.ExecuteScalar().ToString());
-                    if (count > 0)
+                    string sql = string.Format("select count(RoomNo) from Schedule where Day = '" + lblDay.Text + "' and Date = '" + dateTimePicker1.Value + "' and Time = '" + cbTime.Text + "' and  RoomNo = " + cbRoom.Text + "");
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
-
-                        MessageBox.Show("room already reserved please select another room");
-
-                    }
-                    else
-                    {
-                        using (SqlConnection connn = new SqlConnection(DB.GetInstance().connStr))
+                        conn.Open();
+                        int count = int.Parse(cmd.ExecuteScalar().ToString());
+                        if (count > 0)
                         {
-                            string sql2 = string.Format("select count(class) from Schedule where Day = '" + cbDay.Text + "' and Date = '" + dateTimePicker1.Value + "' and Time = '" + cbTime.Text + "' and  class = " + cbClass.Text + "");
-                            using (SqlCommand cmddd = new SqlCommand(sql2, connn))
+
+                            MessageBox.Show("room already reserved please select another room");
+
+                        }
+                        else
+                        {
+                            using (SqlConnection connn = new SqlConnection(DB.GetInstance().connStr))
                             {
-                                connn.Open();
-                                int count2 = int.Parse(cmddd.ExecuteScalar().ToString());
-                                if (count2 > 0)
+                                string sql2 = string.Format("select count(class) from Schedule where Day = '" + lblDay.Text + "' and Date = '" + dateTimePicker1.Value + "' and Time = '" + cbTime.Text + "' and  class = " + cbClass.Text + "");
+                                using (SqlCommand cmddd = new SqlCommand(sql2, connn))
                                 {
+                                    connn.Open();
+                                    int count2 = int.Parse(cmddd.ExecuteScalar().ToString());
+                                    if (count2 > 0)
+                                    {
 
-                                    MessageBox.Show("This Class Already Have Class On " + cbTime.Text + " Please Select Another Time Slot");
+                                        MessageBox.Show("This Class Already Have Class On " + cbTime.Text + " Please Select Another Time Slot");
 
+                                    }
+                                    else
+                                    {
+
+                                        SqlConnection con = new SqlConnection(DB.GetInstance().connStr);
+                                        string query = "insert into Schedule (Day , Date , Time , class , roomno , subject , teacher) values ('" + lblDay.Text + "' , '" + dateTimePicker1.Value + "' , '" + cbTime.SelectedValue + "' ," + cbClass.SelectedValue + " ,  " + cbRoom.SelectedValue + " ,  '" + cbSubject.SelectedValue + "' , '" + cbTeacher.SelectedValue + "')";
+                                        con.Open();
+                                        SqlCommand cmdd = new SqlCommand(query, con);
+                                        cmdd.ExecuteNonQuery();
+                                        con.Close();
+                                        MessageBox.Show("Class Has Been Reserved On " + lblDay.Text + " , " + dateTimePicker1.Value + " At " + cbTime.Text + " In Room No " + cbRoom.Text + "");
+
+                                        load();
+                                    }
                                 }
-                                else
-                                {
-
-                                    SqlConnection con = new SqlConnection(DB.GetInstance().connStr);
-                                    string query = "insert into Schedule (Day , Date , Time , class , roomno , subject , teacher) values ('" + cbDay.Text + "' , '" + dateTimePicker1.Value + "' , '" + cbTime.Text + "' ," + cbClass.Text + " ,  " + cbRoom.Text + " ,  '" + cbSubject.Text + "' , '" + cbTeacher.Text + "')";
-                                    con.Open();
-                                    SqlCommand cmdd = new SqlCommand(query, con);
-                                    cmdd.ExecuteNonQuery();
-                                    con.Close();
-                                    MessageBox.Show("Extra Class Has Been Reserved On " + cbDay.Text + " , " + dateTimePicker1.Value + " At " + cbTime.Text + " In Room No " + cbRoom.Text + "");
-
-
-
-
-                                }
-
-
-
-
                             }
                         }
                     }
-
-
-
-
-
-
-
                 }
-
             }
-
-
-
-
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
 
@@ -167,32 +144,28 @@ namespace SmartSchool
 
         private void frmSchedule_Load(object sender, EventArgs e)
         {
+            lblDay.Text = dateTimePicker1.Value.DayOfWeek.ToString();
             cb_class();
-            cb_Day();
             cb_room();
             Cb_Subject();
             Cb_teacher();
             cb_Time();
-            lblStatus.Hide();
-
-            cbTeacher.Hide();
-            cbSubject.Hide();
-            label6.Hide();
-            label7.Hide();
-
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            count_room();
-            load();
+            if (cbClass.Text == "(Select Class)" || lblDay.Text == "(Select Day)" || cbTime.Text == "(Select Time Slot)")
+            {
+                MessageBox.Show("Please Check that all fields are properly selected!");
+            }
+            else
+            {
+                count_room();
+            }
 
-            cbTeacher.Hide();
-            cbSubject.Hide();
-            label6.Hide();
-            label7.Hide();
-            lblStatus.Hide();
+
+
 
 
         }
@@ -201,7 +174,7 @@ namespace SmartSchool
         {
             using (SqlConnection conn = new SqlConnection(DB.GetInstance().connStr))
             {
-                string sql = string.Format("select * from Schedule where Day = '" + cbDay.Text + "' ");
+                string sql = string.Format("select * from Schedule where Day = '" + lblDay.Text + "' ");
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     conn.Open();
@@ -279,57 +252,20 @@ namespace SmartSchool
             load();
         }
 
-        private void cbRoom_SelectionChangeCommitted(object sender, EventArgs e)
+        private void btnPrint_Click(object sender, EventArgs e)
         {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(DB.GetInstance().connStr))
-                {
-                    string sql = string.Format("select count(RoomNo) from Schedule where Day = '" + cbDay.Text + "' and Date = '" + dateTimePicker1.Value + "' and Time = '" + cbTime.Text + "' and  RoomNo = '" + cbRoom.Text + "'");
-                    using (SqlCommand cmd = new SqlCommand(sql, conn))
-                    {
-                        conn.Open();
-                        int count = int.Parse(cmd.ExecuteScalar().ToString());
-                        if (count == 0 || count.Equals(null))
-                        {
-
-                            lblStatus.Text = "Room Available";
-                            lblStatus.Show();
-                            cbTeacher.Show();
-                            cbSubject.Show();
-                            label6.Show();
-                            label7.Show();
-                            
-
-
-                        }
-                        else
-                        {
-
-                            lblStatus.Text = "Room Not Available";
-                            lblStatus.Show();
-                            cbTeacher.Hide();
-                            cbSubject.Hide();
-                            label6.Hide();
-                            label7.Hide();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-
+            frmScheduleReport sr = new frmScheduleReport();
+            sr.ShowDialog();
         }
-    }                
-                        
-                
-            
-        
-                            
-                        
-                    
-    
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            lblDay.Text = dateTimePicker1.Value.DayOfWeek.ToString();
+        }
+
+        private void cbSubject_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            Cb_teacher();
+        }
+    }
 }

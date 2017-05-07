@@ -61,12 +61,16 @@
             this.panelLogout = new System.Windows.Forms.Panel();
             this.panelFinanceDept = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnChart = new System.Windows.Forms.Button();
+            this.panelChart = new System.Windows.Forms.Panel();
+            this.btnShowChart = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panelFees.SuspendLayout();
             this.panelSalary.SuspendLayout();
             this.panelReport.SuspendLayout();
             this.panelLogout.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panelChart.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -78,7 +82,7 @@
             this.backToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1244, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1244, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -87,21 +91,23 @@
             this.feesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addNewToolStripMenuItem,
             this.viewAllToolStripMenuItem});
+            this.feesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.feesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.feesToolStripMenuItem.Name = "feesToolStripMenuItem";
-            this.feesToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
+            this.feesToolStripMenuItem.Size = new System.Drawing.Size(47, 21);
             this.feesToolStripMenuItem.Text = "Fees";
             // 
             // addNewToolStripMenuItem
             // 
             this.addNewToolStripMenuItem.Name = "addNewToolStripMenuItem";
-            this.addNewToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.addNewToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.addNewToolStripMenuItem.Text = "Add new";
             this.addNewToolStripMenuItem.Click += new System.EventHandler(this.addNewToolStripMenuItem_Click);
             // 
             // viewAllToolStripMenuItem
             // 
             this.viewAllToolStripMenuItem.Name = "viewAllToolStripMenuItem";
-            this.viewAllToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.viewAllToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.viewAllToolStripMenuItem.Text = "View All";
             this.viewAllToolStripMenuItem.Click += new System.EventHandler(this.viewAllToolStripMenuItem_Click);
             // 
@@ -110,21 +116,23 @@
             this.salaryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addNewToolStripMenuItem1,
             this.viewAllToolStripMenuItem1});
+            this.salaryToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salaryToolStripMenuItem.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.salaryToolStripMenuItem.Name = "salaryToolStripMenuItem";
-            this.salaryToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.salaryToolStripMenuItem.Size = new System.Drawing.Size(57, 21);
             this.salaryToolStripMenuItem.Text = "Salary";
             // 
             // addNewToolStripMenuItem1
             // 
             this.addNewToolStripMenuItem1.Name = "addNewToolStripMenuItem1";
-            this.addNewToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
+            this.addNewToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
             this.addNewToolStripMenuItem1.Text = "Add New";
             this.addNewToolStripMenuItem1.Click += new System.EventHandler(this.addNewToolStripMenuItem1_Click);
             // 
             // viewAllToolStripMenuItem1
             // 
             this.viewAllToolStripMenuItem1.Name = "viewAllToolStripMenuItem1";
-            this.viewAllToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
+            this.viewAllToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
             this.viewAllToolStripMenuItem1.Text = "View All";
             this.viewAllToolStripMenuItem1.Click += new System.EventHandler(this.viewAllToolStripMenuItem1_Click);
             // 
@@ -133,21 +141,23 @@
             this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.feeReportToolStripMenuItem,
             this.salaryReportToolStripMenuItem});
+            this.reportsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(67, 21);
             this.reportsToolStripMenuItem.Text = "Reports";
             // 
             // feeReportToolStripMenuItem
             // 
             this.feeReportToolStripMenuItem.Name = "feeReportToolStripMenuItem";
-            this.feeReportToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.feeReportToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.feeReportToolStripMenuItem.Text = "Fee Report";
             this.feeReportToolStripMenuItem.Click += new System.EventHandler(this.feeReportToolStripMenuItem_Click);
             // 
             // salaryReportToolStripMenuItem
             // 
             this.salaryReportToolStripMenuItem.Name = "salaryReportToolStripMenuItem";
-            this.salaryReportToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.salaryReportToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.salaryReportToolStripMenuItem.Text = "Salary Report";
             this.salaryReportToolStripMenuItem.Click += new System.EventHandler(this.salaryReportToolStripMenuItem_Click);
             // 
@@ -156,21 +166,23 @@
             this.backToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.logoutToolStripMenuItem,
             this.logoutExitToolStripMenuItem});
+            this.backToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backToolStripMenuItem.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.backToolStripMenuItem.Name = "backToolStripMenuItem";
-            this.backToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.backToolStripMenuItem.Size = new System.Drawing.Size(48, 21);
             this.backToolStripMenuItem.Text = "Back";
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // logoutExitToolStripMenuItem
             // 
             this.logoutExitToolStripMenuItem.Name = "logoutExitToolStripMenuItem";
-            this.logoutExitToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.logoutExitToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.logoutExitToolStripMenuItem.Text = "Exit";
             this.logoutExitToolStripMenuItem.Click += new System.EventHandler(this.logoutExitToolStripMenuItem_Click);
             // 
@@ -250,7 +262,7 @@
             this.btnLogout2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout2.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.btnLogout2.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout2.Image")));
-            this.btnLogout2.Location = new System.Drawing.Point(3, 309);
+            this.btnLogout2.Location = new System.Drawing.Point(3, 411);
             this.btnLogout2.Name = "btnLogout2";
             this.btnLogout2.Size = new System.Drawing.Size(107, 102);
             this.btnLogout2.TabIndex = 13;
@@ -386,7 +398,7 @@
             // 
             this.panelLogout.Controls.Add(this.btnLogout1);
             this.panelLogout.Controls.Add(this.btnLogoutAndExit);
-            this.panelLogout.Location = new System.Drawing.Point(110, 333);
+            this.panelLogout.Location = new System.Drawing.Point(110, 435);
             this.panelLogout.Name = "panelLogout";
             this.panelLogout.Size = new System.Drawing.Size(134, 104);
             this.panelLogout.TabIndex = 22;
@@ -403,6 +415,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnChart);
             this.panel1.Controls.Add(this.btnStudent);
             this.panel1.Controls.Add(this.btnStaff);
             this.panel1.Controls.Add(this.btnReport);
@@ -412,11 +425,50 @@
             this.panel1.Size = new System.Drawing.Size(113, 749);
             this.panel1.TabIndex = 0;
             // 
+            // btnChart
+            // 
+            this.btnChart.BackColor = System.Drawing.SystemColors.Control;
+            this.btnChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChart.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnChart.Image = ((System.Drawing.Image)(resources.GetObject("btnChart.Image")));
+            this.btnChart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnChart.Location = new System.Drawing.Point(3, 309);
+            this.btnChart.Name = "btnChart";
+            this.btnChart.Size = new System.Drawing.Size(107, 102);
+            this.btnChart.TabIndex = 15;
+            this.btnChart.Text = "Charts";
+            this.btnChart.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnChart.UseVisualStyleBackColor = false;
+            this.btnChart.MouseHover += new System.EventHandler(this.btnChart_MouseHover);
+            // 
+            // panelChart
+            // 
+            this.panelChart.Controls.Add(this.btnShowChart);
+            this.panelChart.Location = new System.Drawing.Point(112, 334);
+            this.panelChart.Name = "panelChart";
+            this.panelChart.Size = new System.Drawing.Size(132, 53);
+            this.panelChart.TabIndex = 16;
+            this.panelChart.MouseLeave += new System.EventHandler(this.panelChart_MouseLeave);
+            // 
+            // btnShowChart
+            // 
+            this.btnShowChart.BackColor = System.Drawing.SystemColors.Control;
+            this.btnShowChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowChart.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnShowChart.Location = new System.Drawing.Point(0, 2);
+            this.btnShowChart.Name = "btnShowChart";
+            this.btnShowChart.Size = new System.Drawing.Size(130, 49);
+            this.btnShowChart.TabIndex = 9;
+            this.btnShowChart.Text = "Show Chart";
+            this.btnShowChart.UseVisualStyleBackColor = false;
+            this.btnShowChart.Click += new System.EventHandler(this.btnShowChart_Click);
+            // 
             // frmFinanceDashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1244, 710);
+            this.Controls.Add(this.panelChart);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelLogout);
             this.Controls.Add(this.panelReport);
@@ -439,6 +491,7 @@
             this.panelReport.ResumeLayout(false);
             this.panelLogout.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panelChart.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -478,5 +531,8 @@
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem feeReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salaryReportToolStripMenuItem;
+        private System.Windows.Forms.Button btnChart;
+        private System.Windows.Forms.Panel panelChart;
+        private System.Windows.Forms.Button btnShowChart;
     }
 }

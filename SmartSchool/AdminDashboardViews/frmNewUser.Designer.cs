@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNewUser));
             this.label1 = new System.Windows.Forms.Label();
             this.tbUserId = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,21 +44,24 @@
             this.tbConfirmPassword = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(70, 81);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(467, 181);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.Size = new System.Drawing.Size(71, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "User ID";
             // 
             // tbUserId
             // 
             this.tbUserId.Enabled = false;
-            this.tbUserId.Location = new System.Drawing.Point(176, 78);
+            this.tbUserId.Location = new System.Drawing.Point(635, 183);
             this.tbUserId.Name = "tbUserId";
             this.tbUserId.Size = new System.Drawing.Size(64, 20);
             this.tbUserId.TabIndex = 1;
@@ -65,24 +69,26 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(70, 159);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(467, 259);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 13);
+            this.label3.Size = new System.Drawing.Size(86, 20);
             this.label3.TabIndex = 3;
             this.label3.Text = "Password";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(70, 133);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(467, 233);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 13);
+            this.label4.Size = new System.Drawing.Size(93, 20);
             this.label4.TabIndex = 4;
             this.label4.Text = "UserName";
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(176, 156);
+            this.tbPassword.Location = new System.Drawing.Point(635, 261);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(149, 20);
@@ -90,17 +96,18 @@
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(176, 130);
+            this.tbUsername.Location = new System.Drawing.Point(635, 235);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(149, 20);
             this.tbUsername.TabIndex = 7;
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(233, 276);
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Location = new System.Drawing.Point(460, 354);
             this.btnClear.Margin = new System.Windows.Forms.Padding(5);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(92, 35);
+            this.btnClear.Size = new System.Drawing.Size(79, 27);
             this.btnClear.TabIndex = 41;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -108,10 +115,11 @@
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(73, 276);
+            this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreate.Location = new System.Drawing.Point(705, 354);
             this.btnCreate.Margin = new System.Windows.Forms.Padding(5);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(88, 35);
+            this.btnCreate.Size = new System.Drawing.Size(79, 27);
             this.btnCreate.TabIndex = 40;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = true;
@@ -120,7 +128,7 @@
             // cbDeptName
             // 
             this.cbDeptName.FormattingEnabled = true;
-            this.cbDeptName.Location = new System.Drawing.Point(176, 209);
+            this.cbDeptName.Location = new System.Drawing.Point(635, 314);
             this.cbDeptName.Name = "cbDeptName";
             this.cbDeptName.Size = new System.Drawing.Size(149, 21);
             this.cbDeptName.TabIndex = 42;
@@ -129,7 +137,7 @@
             // tbDeptId
             // 
             this.tbDeptId.Enabled = false;
-            this.tbDeptId.Location = new System.Drawing.Point(176, 104);
+            this.tbDeptId.Location = new System.Drawing.Point(635, 209);
             this.tbDeptId.Name = "tbDeptId";
             this.tbDeptId.Size = new System.Drawing.Size(64, 20);
             this.tbDeptId.TabIndex = 43;
@@ -137,24 +145,26 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(70, 107);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(467, 207);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.Size = new System.Drawing.Size(72, 20);
             this.label2.TabIndex = 44;
             this.label2.Text = "Dept ID";
             // 
             // Department
             // 
             this.Department.AutoSize = true;
-            this.Department.Location = new System.Drawing.Point(70, 212);
+            this.Department.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Department.Location = new System.Drawing.Point(467, 312);
             this.Department.Name = "Department";
-            this.Department.Size = new System.Drawing.Size(62, 13);
+            this.Department.Size = new System.Drawing.Size(104, 20);
             this.Department.TabIndex = 45;
             this.Department.Text = "Department";
             // 
             // tbConfirmPassword
             // 
-            this.tbConfirmPassword.Location = new System.Drawing.Point(176, 183);
+            this.tbConfirmPassword.Location = new System.Drawing.Point(635, 288);
             this.tbConfirmPassword.Name = "tbConfirmPassword";
             this.tbConfirmPassword.PasswordChar = '*';
             this.tbConfirmPassword.Size = new System.Drawing.Size(149, 20);
@@ -163,9 +173,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(70, 186);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(467, 286);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(91, 13);
+            this.label5.Size = new System.Drawing.Size(153, 20);
             this.label5.TabIndex = 3;
             this.label5.Text = "Confirm Password";
             // 
@@ -173,11 +184,20 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(67, 27);
+            this.label6.Location = new System.Drawing.Point(533, 80);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(214, 33);
             this.label6.TabIndex = 47;
             this.label6.Text = "Add New User";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(460, 59);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 75);
+            this.pictureBox1.TabIndex = 48;
+            this.pictureBox1.TabStop = false;
             // 
             // frmNewUser
             // 
@@ -199,12 +219,14 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbUserId);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmNewUser";
             this.ShowIcon = false;
             this.Text = "Add User";
             this.Load += new System.EventHandler(this.frmNewUser_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,5 +249,6 @@
         private System.Windows.Forms.TextBox tbConfirmPassword;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

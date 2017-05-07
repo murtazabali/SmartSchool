@@ -12,10 +12,14 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>E:\5th Semester\ISD\Software\</PublishUrl>
     <Install>true</Install>
@@ -30,7 +34,7 @@
     <ProductName>SmartSchool</ProductName>
     <PublisherName>Murtaza Fakhruddin</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>10</ApplicationRevision>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -100,6 +104,12 @@
     <Reference Include="UIAutomationTypes" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminDashboardViews\ConnectionStringForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardViews\ConnectionStringForm.Designer.cs">
+      <DependentUpon>ConnectionStringForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataSets\SMSUsers.cs">
       <DependentUpon>SMSUsers.xsd</DependentUpon>
     </Compile>
@@ -278,6 +288,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SMSUsers.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminDashboardViews\ConnectionStringForm.resx">
+      <DependentUpon>ConnectionStringForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\FeeRemainingReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>FeeRemainingReport.cs</LastGenOutput>

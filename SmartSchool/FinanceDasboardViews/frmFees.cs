@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace SmartSchool
     {
         public frmFees()
         {
-            InitializeComponent();        
+            InitializeComponent();
         }
 
         private void frmFees_Load(object sender, EventArgs e)
@@ -38,46 +39,53 @@ namespace SmartSchool
 
         void cb_Month()
         {
-            string[] month = { "(Select Month)","January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+            string[] month = { "(Select Month)", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
             cbmonth.DataSource = month;
         }
 
         private void txtstudentid_TextChanged(object sender, EventArgs e)
         {
-            if(txtstudentid.Text == "")
+            try
             {
-                panelStudentDetails.Hide();
-                lblStatus.Text = "";
-            }
-            else
-            {
-                SqlConnection conn = new SqlConnection(DB.GetInstance().connStr);
-                conn.Open();
-                String query = String.Format("Select firstname,lastname,gender,bform,class,section from student where stdid = {0}", int.Parse(txtstudentid.Text));
-                SqlCommand cmd = new SqlCommand(query, conn);
-                SqlDataReader reader = cmd.ExecuteReader();
-                if (reader.HasRows)
+
+                if (txtstudentid.Text == "")
                 {
+                    panelStudentDetails.Hide();
                     lblStatus.Text = "";
-                    while (reader.Read())
-                    {
-                        lblFirstname.Text = reader["firstname"].ToString();
-                        lblLastName.Text = reader["lastname"].ToString();
-                        lblGender.Text = reader["gender"].ToString();
-                        lblBform.Text = reader["bform"].ToString();
-                        lblClass.Text = reader["class"].ToString();
-                        lblSection.Text = reader["section"].ToString();
-                    }
-                    conn.Close();
-                    panelStudentDetails.Show();
                 }
                 else
                 {
-                    panelStudentDetails.Hide();
-                    lblStatus.Text = "Student not found!";
+                    SqlConnection conn = new SqlConnection(DB.GetInstance().connStr);
+                    conn.Open();
+                    String query = String.Format("Select firstname,lastname,gender,bform,class,section from student where stdid = {0}", int.Parse(txtstudentid.Text));
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        lblStatus.Text = "";
+                        while (reader.Read())
+                        {
+                            lblFirstname.Text = reader["firstname"].ToString();
+                            lblLastName.Text = reader["lastname"].ToString();
+                            lblGender.Text = reader["gender"].ToString();
+                            lblBform.Text = reader["bform"].ToString();
+                            lblClass.Text = reader["class"].ToString();
+                            lblSection.Text = reader["section"].ToString();
+                        }
+                        conn.Close();
+                        get_image();
+                        panelStudentDetails.Show();
+                    }
+                    else
+                    {
+                        panelStudentDetails.Hide();
+                        lblStatus.Text = "Student not found!";
+                    }
+
                 }
-                
+
             }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void nmFeeAmount_ValueChanged(object sender, EventArgs e)
@@ -86,11 +94,11 @@ namespace SmartSchool
             {
                 nmtotal.Value = nmFeeAmount.Value - nmscholarship.Value;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
         }
 
         private void nmscholarship_ValueChanged(object sender, EventArgs e)
@@ -103,7 +111,7 @@ namespace SmartSchool
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
         }
 
         private void nmpaidfees_ValueChanged(object sender, EventArgs e)
@@ -111,11 +119,12 @@ namespace SmartSchool
             try
             {
                 nmbalance.Value = nmtotal.Value - nmpaidfees.Value;
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-           
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -125,7 +134,7 @@ namespace SmartSchool
             String query = String.Format("Select firstname from student where stdid = {0}", int.Parse(txtstudentid.Text));
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataReader reader = cmd.ExecuteReader();
-            if(cbmonth.Text != "(Select Month)")
+            if (cbmonth.Text != "(Select Month)")
             {
                 if (reader.HasRows)
                 {
@@ -142,26 +151,26 @@ namespace SmartSchool
             {
                 MessageBox.Show("Please Select Month!");
             }
-           
 
-       }
+
+        }
 
         void Insert_Fees()
         {
             try
             {
                 SqlConnection conn = new SqlConnection(DB.GetInstance().connStr);
-                conn.Open();               
+                conn.Open();
                 SqlCommand cmd = new SqlCommand("SP_Insert_Fee", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@stdid",int.Parse(txtstudentid.Text));
-                cmd.Parameters.AddWithValue("@month",cbmonth.SelectedValue.ToString());
-                cmd.Parameters.AddWithValue("@duedate",dtdue.Value);
-                cmd.Parameters.AddWithValue("@paydate",dtpaid.Value);
-                cmd.Parameters.AddWithValue("@scholarship",nmscholarship.Value);
-                cmd.Parameters.AddWithValue("@paidfees",nmpaidfees.Value);
-                cmd.Parameters.AddWithValue("@balance",nmbalance.Value);
-                cmd.Parameters.AddWithValue("@totalfees",nmtotal.Value);
+                cmd.Parameters.AddWithValue("@stdid", int.Parse(txtstudentid.Text));
+                cmd.Parameters.AddWithValue("@month", cbmonth.SelectedValue.ToString());
+                cmd.Parameters.AddWithValue("@duedate", dtdue.Value);
+                cmd.Parameters.AddWithValue("@paydate", dtpaid.Value);
+                cmd.Parameters.AddWithValue("@scholarship", nmscholarship.Value);
+                cmd.Parameters.AddWithValue("@paidfees", nmpaidfees.Value);
+                cmd.Parameters.AddWithValue("@balance", nmbalance.Value);
+                cmd.Parameters.AddWithValue("@totalfees", nmtotal.Value);
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
@@ -169,7 +178,7 @@ namespace SmartSchool
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
         }
         void Clear()
         {
@@ -183,6 +192,27 @@ namespace SmartSchool
             nmtotal.ResetText();
             nmpaidfees.ResetText();
             nmbalance.ResetText();
+        }
+
+        void get_image()
+        {
+            string id = txtstudentid.Text;
+            SqlConnection conn = new SqlConnection(DB.GetInstance().connStr);
+            conn.Open();
+            String query = "Select picture from student where stdid = " + id + " ";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            if (cmd.ExecuteScalar().ToString() != "")
+            {
+                byte[] s = (byte[])cmd.ExecuteScalar();
+                MemoryStream ms = new MemoryStream(s);
+                conn.Close();
+                pictureBox2.Image = Image.FromStream(ms);
+            }else
+            {
+                conn.Close();
+                pictureBox2.Image = null;
+            }
+                     
         }
     }
 }

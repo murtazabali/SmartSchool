@@ -16,22 +16,58 @@ namespace SmartSchool
         public frmChart()
         {
             InitializeComponent();
+            cSalary.Series["Salary"].Color = Color.BlueViolet;
+            cBonus.Series["Bonus"].Color = Color.Green;
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(DB.GetInstance().connStr);
-            conn.Open();
-            String query = "Select totalsalary, staffid from salary";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            SqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
+            try
             {
-                cSalary.Series["Salary"].Points.AddXY(dr["staffid"].ToString(), dr["totalsalary"].ToString());
-                cSalary.Series["Salary"].XValueMember = "Staff";
-                cSalary.Series["Salary"].YValueMembers = "Salary";
+                SqlConnection conn = new SqlConnection(DB.GetInstance().connStr);
+                conn.Open();
+                String query = "Select totalsalary, month from salary where staffid = " + tbId.Text + "";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader dr = cmd.ExecuteReader();
+                foreach (var series in cSalary.Series)
+                {
+                    series.Points.Clear();
+                }
+                while (dr.Read())
+                {
+
+                    cSalary.Series["Salary"].Points.AddXY(dr["month"].ToString(), dr["totalsalary"].ToString());
+                    cSalary.Series["Salary"].XValueMember = "month";
+                    cSalary.Series["Salary"].YValueMembers = "Salary";
+                }
+                conn.Close();
             }
-            conn.Close();
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        private void btnLoadBonus_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(DB.GetInstance().connStr);
+                conn.Open();
+                String query = "Select bonus, month from salary where staffid = " + tbBonus.Text + "";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader dr = cmd.ExecuteReader();
+                foreach (var series in cBonus.Series)
+                {
+                    series.Points.Clear();
+                }
+                while (dr.Read())
+                {
+
+                    cBonus.Series["Bonus"].Points.AddXY(dr["month"].ToString(), dr["bonus"].ToString());
+                    cBonus.Series["Bonus"].XValueMember = "month";
+                    cBonus.Series["Bonus"].YValueMembers = "bonus";
+                }
+                conn.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }

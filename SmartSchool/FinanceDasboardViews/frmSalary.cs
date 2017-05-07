@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -94,6 +95,7 @@ namespace SmartSchool
                        
                     }
                     conn.Close();
+                    get_image();
                     panelStaffDetails.Show();
                 }
                 else
@@ -104,7 +106,25 @@ namespace SmartSchool
 
             }
         }
-
+        void get_image()
+        {
+            string id = txtstaffid.Text;
+            SqlConnection conn = new SqlConnection(DB.GetInstance().connStr);
+            conn.Open();
+            String query = "Select picture from staffs where staffid = " + id + " ";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            if (cmd.ExecuteScalar().ToString() != "")
+            {
+                byte[] s = (byte[])cmd.ExecuteScalar();
+                MemoryStream ms = new MemoryStream(s);
+                conn.Close();
+                pictureBox2.Image = Image.FromStream(ms);
+            }
+            else
+            {
+                pictureBox2.Image = null;
+            }
+        }
         private void nmbasic_ValueChanged(object sender, EventArgs e)
         {
             txttotal.Text = (nmbasic.Value + nmbonus.Value).ToString();

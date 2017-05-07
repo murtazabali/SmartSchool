@@ -1,0 +1,62 @@
+INSERT INTO [dbo].[dept] ([deptid], [deptname], [location]) VALUES (1, N'Administrator', N'abc')
+INSERT INTO [dbo].[dept] ([deptid], [deptname], [location]) VALUES (2, N'Finance', N'acb')
+
+INSERT INTO [dbo].[designation] ([DesgId], [Desgname]) VALUES (1, N'Faculty')
+INSERT INTO [dbo].[designation] ([DesgId], [Desgname]) VALUES (2, N'Pune')
+INSERT INTO [dbo].[designation] ([DesgId], [Desgname]) VALUES (3, N'Security Guard')
+
+SET IDENTITY_INSERT [dbo].[student] ON
+INSERT INTO [dbo].[student] ([stdid], [firstname], [lastname], [gender], [dob], [placeofbirth], [mothertongue], [nationality], [contact], [address], [dateofjoining], [lastschoolattend], [bform], [class], [section], [picture]) VALUES (8, N'Murtaza', N'Fakhruddin', N'Male', N'2017-01-05', N'Karachi', N'Urdu', N'Pakistani', CAST(3312316819 AS Decimal(12, 0)), N'KRS Captain Road', N'2017-01-05', N'', CAST(4200015953785 AS Decimal(13, 0)), 7, N'A', <Binary Data>)
+INSERT INTO [dbo].[student] ([stdid], [firstname], [lastname], [gender], [dob], [placeofbirth], [mothertongue], [nationality], [contact], [address], [dateofjoining], [lastschoolattend], [bform], [class], [section], [picture]) VALUES (9, N'Asad', N'Aslam', N'Male', N'2017-01-05', N'Karachi', N'Urdu', N'Pakistani', CAST(3312316810 AS Decimal(12, 0)), N'Gulshan-e-Iqbal', N'2017-01-05', N'', CAST(4230115843985 AS Decimal(13, 0)), 1, N'A', <Binary Data>)
+INSERT INTO [dbo].[student] ([stdid], [firstname], [lastname], [gender], [dob], [placeofbirth], [mothertongue], [nationality], [contact], [address], [dateofjoining], [lastschoolattend], [bform], [class], [section], [picture]) VALUES (10, N'Adnan', N'Khan', N'Male', N'2017-01-05', N'Karachi', N'Urdu', N'Pakistani', CAST(3312415689 AS Decimal(12, 0)), N'Sadar', N'2017-01-05', N'', CAST(4230114678934 AS Decimal(13, 0)), 2, N'B', <Binary Data>)
+INSERT INTO [dbo].[student] ([stdid], [firstname], [lastname], [gender], [dob], [placeofbirth], [mothertongue], [nationality], [contact], [address], [dateofjoining], [lastschoolattend], [bform], [class], [section], [picture]) VALUES (11, N'Ahmed', N'Abbas', N'Male', N'2017-01-05', N'Karachi', N'Urdu', N'Pakistani', CAST(3315467849 AS Decimal(12, 0)), N'Malir', N'2017-01-05', N'', CAST(4230178695674 AS Decimal(13, 0)), 6, N'C', <Binary Data>)
+SET IDENTITY_INSERT [dbo].[student] OFF
+
+
+INSERT INTO [dbo].[staffs] ([staffid], [firstname], [lastname], [gender], [dob], [placeofbirth], [mothertongue], [nationality], [contact], [address], [dateofjoin], [cnic], [lastworked], [previousexp], [designation], [desgid], [subjectname], [subjectid], [picture]) VALUES (5, N'Murtaza', N'Fakhruddin', N'Male', N'2017-01-05 02:17:07', N'Karachi', N'Urdu', N'Pakistani', CAST(3312316819 AS Decimal(12, 0)), N'KRS Captain Road', N'2017-01-05 02:17:07', CAST(4230119593785 AS Decimal(13, 0)), N'', N'', N'Faculty', 1, N'English', 1, <Binary Data>)
+INSERT INTO [dbo].[staffs] ([staffid], [firstname], [lastname], [gender], [dob], [placeofbirth], [mothertongue], [nationality], [contact], [address], [dateofjoin], [cnic], [lastworked], [previousexp], [designation], [desgid], [subjectname], [subjectid], [picture]) VALUES (6, N'Ahmed', N'Abbas', N'Male', N'2017-01-05 15:15:50', N'Karachi', N'Urdu', N'Pakistani', CAST(3342516876 AS Decimal(12, 0)), N'Malir', N'2017-01-05 15:15:50', CAST(4230118574635 AS Decimal(13, 0)), N'', N'', N'Security Guard', 3, N'', 0, <Binary Data>)
+INSERT INTO [dbo].[staffs] ([staffid], [firstname], [lastname], [gender], [dob], [placeofbirth], [mothertongue], [nationality], [contact], [address], [dateofjoin], [cnic], [lastworked], [previousexp], [designation], [desgid], [subjectname], [subjectid], [picture]) VALUES (7, N'Daniyal', N'Najeeb', N'Male', N'2017-01-05 15:24:01', N'Karachi', N'Urdu', N'Pakistani', CAST(3354568461 AS Decimal(12, 0)), N'Defence', N'2017-01-05 15:24:01', CAST(4230116574983 AS Decimal(13, 0)), N'', N'', N'Pune', 2, N'', 0, <Binary Data>)
+INSERT INTO [dbo].[staffs] ([staffid], [firstname], [lastname], [gender], [dob], [placeofbirth], [mothertongue], [nationality], [contact], [address], [dateofjoin], [cnic], [lastworked], [previousexp], [designation], [desgid], [subjectname], [subjectid], [picture]) VALUES (8, N'Suhair', N'Amir', N'Male', N'2017-01-05 15:31:30', N'Karachi', N'Urdu', N'Pakistani', CAST(3324512865 AS Decimal(12, 0)), N'Defence', N'2017-01-05 15:31:30', CAST(4230157236985 AS Decimal(13, 0)), N'', N'', N'Faculty', 1, N'English', 1, <Binary Data>)
+INSERT INTO [dbo].[staffs] ([staffid], [firstname], [lastname], [gender], [dob], [placeofbirth], [mothertongue], [nationality], [contact], [address], [dateofjoin], [cnic], [lastworked], [previousexp], [designation], [desgid], [subjectname], [subjectid], [picture]) VALUES (9, N'Saqib', N'Saleem', N'Male', N'2017-01-05 15:32:32', N'Karachi', N'Urdu', N'Pakistani', CAST(3341345891 AS Decimal(12, 0)), N'Clifton', N'2017-01-05 15:32:32', CAST(4230178694035 AS Decimal(13, 0)), N'', N'', N'Faculty', 1, N'Science', 3, <Binary Data>)
+INSERT INTO [dbo].[staffs] ([staffid], [firstname], [lastname], [gender], [dob], [placeofbirth], [mothertongue], [nationality], [contact], [address], [dateofjoin], [cnic], [lastworked], [previousexp], [designation], [desgid], [subjectname], [subjectid], [picture]) VALUES (10, N'Ali', N'Shan', N'Male', N'2017-01-05 15:33:50', N'Karachi', N'Urdu', N'Pakistani', CAST(3134587265 AS Decimal(12, 0)), N'Gulistan-e-Johar', N'2017-01-05 15:33:50', CAST(4230117856375 AS Decimal(13, 0)), N'', N'', N'Faculty', 1, N'Maths', 2, <Binary Data>)
+INSERT INTO [dbo].[staffs] ([staffid], [firstname], [lastname], [gender], [dob], [placeofbirth], [mothertongue], [nationality], [contact], [address], [dateofjoin], [cnic], [lastworked], [previousexp], [designation], [desgid], [subjectname], [subjectid], [picture]) VALUES (11, N'Lateef', N'Abro', N'Male', N'2017-01-05 15:37:06', N'Karachi', N'Urdu', N'Pakistani', CAST(3327869356 AS Decimal(12, 0)), N'Defence', N'2017-01-05 15:37:06', CAST(4230198776855 AS Decimal(13, 0)), N'', N'', N'Faculty', 1, N'Arts', 8, <Binary Data>)
+
+
+INSERT INTO [dbo].[subject] ([subjectid], [code], [subjectname]) VALUES (1, N'ENG1001', N'English')
+INSERT INTO [dbo].[subject] ([subjectid], [code], [subjectname]) VALUES (2, N'MATH1001', N'Maths')
+INSERT INTO [dbo].[subject] ([subjectid], [code], [subjectname]) VALUES (3, N'SCI1001', N'Science')
+INSERT INTO [dbo].[subject] ([subjectid], [code], [subjectname]) VALUES (4, N'PAK1001', N'Pakstd')
+INSERT INTO [dbo].[subject] ([subjectid], [code], [subjectname]) VALUES (5, N'GEO1002', N'Geography')
+INSERT INTO [dbo].[subject] ([subjectid], [code], [subjectname]) VALUES (6, N'ISL1004', N'Islamiat')
+INSERT INTO [dbo].[subject] ([subjectid], [code], [subjectname]) VALUES (7, N'URD1006', N'Urdu')
+INSERT INTO [dbo].[subject] ([subjectid], [code], [subjectname]) VALUES (8, N'ART1007', N'Arts')
+
+
+SET IDENTITY_INSERT [dbo].[Users] ON
+INSERT INTO [dbo].[Users] ([userid], [username], [password], [deptid]) VALUES (4, N'murtaza', N'mufak123', 1)
+INSERT INTO [dbo].[Users] ([userid], [username], [password], [deptid]) VALUES (5, N'asad', N'asad123', 2)
+SET IDENTITY_INSERT [dbo].[Users] OFF
+
+SET IDENTITY_INSERT [dbo].[fees] ON
+INSERT INTO [dbo].[fees] ([fid], [stdid], [month], [duedate], [paydate], [scholarship], [paidfees], [balance], [totalfees]) VALUES (6, 10, N'January', N'2017-01-04', N'2017-01-05', 20, 5000, 600, 5600)
+SET IDENTITY_INSERT [dbo].[fees] OFF
+
+SET IDENTITY_INSERT [dbo].[salary] ON
+INSERT INTO [dbo].[salary] ([salid], [staffid], [month], [basicsalary], [bonus], [totalsalary]) VALUES (2, 1, N'november', 25000, 2000, 27000)
+INSERT INTO [dbo].[salary] ([salid], [staffid], [month], [basicsalary], [bonus], [totalsalary]) VALUES (3, 1, N'december', 25000, 0, 25000)
+INSERT INTO [dbo].[salary] ([salid], [staffid], [month], [basicsalary], [bonus], [totalsalary]) VALUES (5, 2, N'november', 15000, 1000, 16000)
+INSERT INTO [dbo].[salary] ([salid], [staffid], [month], [basicsalary], [bonus], [totalsalary]) VALUES (6, 2, N'december', 15000, 5000, 20000)
+INSERT INTO [dbo].[salary] ([salid], [staffid], [month], [basicsalary], [bonus], [totalsalary]) VALUES (7, 8, N'January', 50000, 6000, 56000)
+SET IDENTITY_INSERT [dbo].[salary] OFF
+
+
+INSERT INTO [dbo].[Schedule] ([Day], [Date], [Time], [Class], [RoomNo], [Subject], [Teacher]) VALUES (N'Monday', N'2016-12-26', N'08:00 to 09:00', N'10', N'1', N'maths', N'aly')
+INSERT INTO [dbo].[Schedule] ([Day], [Date], [Time], [Class], [RoomNo], [Subject], [Teacher]) VALUES (N'Monday', N'2016-12-26', N'08:00 to 09:00', N'9', N'2', N'english', N'murtaza')
+INSERT INTO [dbo].[Schedule] ([Day], [Date], [Time], [Class], [RoomNo], [Subject], [Teacher]) VALUES (N'Monday', N'2016-12-26', N'08:00 to 09:00', N'8', N'3', N'English', N'Murtaza')
+INSERT INTO [dbo].[Schedule] ([Day], [Date], [Time], [Class], [RoomNo], [Subject], [Teacher]) VALUES (N'Monday', N'2016-12-26', N'08:00 to 09:00', N'7', N'4', N'Maths', N'Murtaza')
+INSERT INTO [dbo].[Schedule] ([Day], [Date], [Time], [Class], [RoomNo], [Subject], [Teacher]) VALUES (N'Monday', N'2016-12-26', N'08:00 to 09:00', N'6', N'5', N'Maths', N'Murtaza')
+INSERT INTO [dbo].[Schedule] ([Day], [Date], [Time], [Class], [RoomNo], [Subject], [Teacher]) VALUES (N'Monday', N'2016-12-26', N'12:30 to 01:30', N'10', N'8', N'English', N'Murtaza')
+INSERT INTO [dbo].[Schedule] ([Day], [Date], [Time], [Class], [RoomNo], [Subject], [Teacher]) VALUES (N'Monday', N'2016-12-26', N'07:00 to 08:00', N'10', N'6', N'Maths', N'Murtaza')
+INSERT INTO [dbo].[Schedule] ([Day], [Date], [Time], [Class], [RoomNo], [Subject], [Teacher]) VALUES (N'Monday', N'2016-12-26', N'10:30 to 11:30', N'9', N'7', N'English', N'Murtaza')
+INSERT INTO [dbo].[Schedule] ([Day], [Date], [Time], [Class], [RoomNo], [Subject], [Teacher]) VALUES (N'Thursday', N'2017-01-05', N'07:00 to 08:00', N'2', N'1', N'English', N'Suhair')
+INSERT INTO [dbo].[Schedule] ([Day], [Date], [Time], [Class], [RoomNo], [Subject], [Teacher]) VALUES (N'Thursday', N'2017-01-05', N'08:00 to 09:00', N'7', N'2', N'Maths', N'Ali')

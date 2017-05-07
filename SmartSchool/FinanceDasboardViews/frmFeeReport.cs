@@ -44,7 +44,7 @@ namespace SmartSchool
                 gvStudentInfo.Show();
                 SqlConnection conn = new SqlConnection(DB.GetInstance().connStr);
                 conn.Open();
-                String query = "Select stdid , firstname , lastname , contact , address , class , section from student where stdid = " + id + " ";
+                String query = "Select stdid , firstname , lastname , contact , address , class , section  from student where stdid = " + id + " ";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -55,7 +55,7 @@ namespace SmartSchool
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
         }
 

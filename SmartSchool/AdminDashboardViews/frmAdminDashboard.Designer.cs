@@ -79,6 +79,8 @@
             this.panelSchedule = new System.Windows.Forms.Panel();
             this.panelLogout = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeConnectionStringToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panelStudent.SuspendLayout();
             this.panelStaff.SuspendLayout();
@@ -373,7 +375,8 @@
             this.subjectToolStripMenuItem,
             this.userToolStripMenuItem,
             this.scheduleToolStripMenuItem,
-            this.logoutToolStripMenuItem});
+            this.logoutToolStripMenuItem,
+            this.settingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(908, 25);
@@ -642,6 +645,21 @@
             this.panel1.Size = new System.Drawing.Size(113, 749);
             this.panel1.TabIndex = 15;
             // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.changeConnectionStringToolStripMenuItem});
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 21);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            // 
+            // changeConnectionStringToolStripMenuItem
+            // 
+            this.changeConnectionStringToolStripMenuItem.Name = "changeConnectionStringToolStripMenuItem";
+            this.changeConnectionStringToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.changeConnectionStringToolStripMenuItem.Text = "Change Connection String";
+            this.changeConnectionStringToolStripMenuItem.Click += new System.EventHandler(this.changeConnectionStringToolStripMenuItem_Click);
+            // 
             // frmAdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -730,5 +748,7 @@
         private System.Windows.Forms.ToolStripMenuItem showScheduleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showUsersToolStripMenuItem;
         private System.Windows.Forms.Button btnShowUsers;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changeConnectionStringToolStripMenuItem;
     }
 }

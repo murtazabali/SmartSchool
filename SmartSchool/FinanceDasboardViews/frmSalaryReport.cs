@@ -101,7 +101,7 @@ namespace SmartSchool
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
 
         }

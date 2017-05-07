@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,7 @@ namespace SmartSchool
         {
             SqlConnection conn = new SqlConnection(DB.GetInstance().connStr);
             conn.Open();
-            String query = "Select * from staffs";
+            String query = "Select [staffid],[firstname],[lastname],[gender]  ,[dob] ,[placeofbirth] ,[mothertongue],[nationality],[contact],[address] ,[dateofjoin],[cnic] ,[lastworked],[previousexp] ,[designation],[desgid]  ,[subjectname] ,[subjectid] from staffs";
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -114,25 +115,56 @@ namespace SmartSchool
             conn.Open();
             if (tbSearchStaffFname.Text != "")
             {
-                String query = String.Format("select * from staffs where firstname like '%{0}%' and lastname like '%{1}%'", tbSearchStaffFname.Text, tbSearchStaffLName.Text);
+                String query = String.Format("select [staffid],[firstname],[lastname],[gender]  ,[dob] ,[placeofbirth] ,[mothertongue],[nationality],[contact],[address] ,[dateofjoin],[cnic] ,[lastworked],[previousexp] ,[designation],[desgid]  ,[subjectname] ,[subjectid] from staffs where firstname like '%{0}%' and lastname like '%{1}%'", tbSearchStaffFname.Text, tbSearchStaffLName.Text);
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 gvstaff.DataSource = dt;
+                get_image3();
                 conn.Close();
                 cbSearchStaff.ResetText();
             }
             else
             {
-                String query = String.Format("Select * from staffs where staffid = {0}", cbSearchStaff.SelectedValue);
+                String query = String.Format("Select [staffid],[firstname],[lastname],[gender]  ,[dob] ,[placeofbirth] ,[mothertongue],[nationality],[contact],[address] ,[dateofjoin],[cnic] ,[lastworked],[previousexp] ,[designation],[desgid]  ,[subjectname] ,[subjectid] from staffs where staffid = {0}", cbSearchStaff.SelectedValue);
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 gvstaff.DataSource = dt;
+                get_image2();
                 conn.Close();
+
             }
+        }
+
+        public Image get_image3()
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(DB.GetInstance().connStr);
+                conn.Open();
+                String query = String.Format("Select picture from staffs where firstname like '%{0}%' and lastname like '%{1}%'", tbSearchStaffFname.Text, tbSearchStaffLName.Text);
+                SqlCommand cmd = new SqlCommand(query, conn);
+                if (cmd.ExecuteScalar().ToString() != "")
+                {
+                    byte[] s = (byte[])cmd.ExecuteScalar();
+                    MemoryStream ms = new MemoryStream(s);
+                    conn.Close();
+                    return pictureBox2.Image = Image.FromStream(ms);
+                }
+                else
+                {
+                    conn.Close();
+                    return pictureBox2.Image = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                return pictureBox2.Image = null;
+            }
+
         }
 
         private void btnLoadAll_Click(object sender, EventArgs e)
@@ -141,6 +173,79 @@ namespace SmartSchool
             tbSearchStaffFname.Clear();
             tbSearchStaffLName.Clear();
             cbSearchStaff.ResetText();
+            pictureBox2.Image = null;
+        }
+
+
+        public Image get_image2()
+        {
+            string id = cbSearchStaff.SelectedValue.ToString();
+            SqlConnection conn = new SqlConnection(DB.GetInstance().connStr);
+            conn.Open();
+            String query = "Select picture from staffs where staffid = " + id + " ";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            if (cmd.ExecuteScalar().ToString() != "")
+            {
+                byte[] s = (byte[])cmd.ExecuteScalar();
+                MemoryStream ms = new MemoryStream(s);
+                conn.Close();
+                return pictureBox2.Image = Image.FromStream(ms);
+            }
+            else
+            {
+                conn.Close();
+                return pictureBox2.Image = null;
+            }
+        }
+        public Image get_image()
+        {
+            try
+            {
+                string id = gvstaff.SelectedRows[0].Cells[0].Value.ToString();
+                SqlConnection conn = new SqlConnection(DB.GetInstance().connStr);
+                conn.Open();
+                String query = "Select picture from staffs where staffid = " + id + " ";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                if (cmd.ExecuteScalar().ToString() != "")
+                {
+                    byte[] s = (byte[])cmd.ExecuteScalar();
+                    MemoryStream ms = new MemoryStream(s);
+                    conn.Close();
+                    return pictureBox2.Image = Image.FromStream(ms);
+                }
+                else
+                {
+                    conn.Close();
+                    MessageBox.Show("Image Not Found!");
+                    return pictureBox2.Image = null;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Please Select Full Row!");
+                return pictureBox2.Image = null;
+            }
+            
+        }
+
+        private void btnShowImage_Click(object sender, EventArgs e)
+        {
+            if(cbSearchStaff.Text != "" && cbSearchStaff.Text != "(ID)")
+            {
+                if(get_image2()!= null)
+                {
+                    get_image2();
+                }
+                else
+                {
+                    MessageBox.Show("Image Not Found!");
+                }
+
+            }
+            else
+            {
+                get_image();
+            }
         }
     }
 }

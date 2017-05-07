@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+using SmartSchool.AdminDashboardViews;
 
 namespace SmartSchool
 {
@@ -376,6 +378,12 @@ namespace SmartSchool
             panelAdminDpt.Controls.Add(nd);
             nd.Show();
             HideAll();
+        }
+
+        private void changeConnectionStringToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConnectionStringForm cn = new ConnectionStringForm();
+            cn.ShowDialog();
         }
     }
 }

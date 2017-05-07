@@ -90,6 +90,7 @@ namespace SmartSchool
             panelSalary.Hide();
             panelLogout.Hide();
             panelReport.Hide();
+            panelChart.Hide();
         }
 
         private void btnStudent_MouseHover(object sender, EventArgs e)
@@ -231,6 +232,27 @@ namespace SmartSchool
             nd.MdiParent = this;
             panelFinanceDept.Controls.Add(nd);
             nd.Show();
+            HideAll();
+        }
+
+        private void btnShowChart_Click(object sender, EventArgs e)
+        {
+            panelFinanceDept.Controls.Clear();
+            frmChart nd = new frmChart();
+            nd.MdiParent = this;
+            panelFinanceDept.Controls.Add(nd);
+            nd.Show();
+            HideAll();
+        }
+
+        private void btnChart_MouseHover(object sender, EventArgs e)
+        {
+            HideAll();
+            panelChart.Show();
+        }
+
+        private void panelChart_MouseLeave(object sender, EventArgs e)
+        {
             HideAll();
         }
     }
